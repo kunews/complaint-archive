@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta
+      name="description"
+      content="과외교습비 사건 자료와 두 가지 소장 작성안을 원문과 텍스트로 살펴보는 인터랙티브 문서 뷰어"
+    />
+    <meta property="og:title" content="소장 아카이브 — 사건 기록 열람실" />
+    <meta
+      property="og:description"
+      content="사건 자료와 소장 작성안을 페이지별로 읽고 비교하고 내려받을 수 있습니다."
+    />
+    <title>소장 아카이브 — 사건 기록 열람실</title>
+    <link rel="icon" href="assets/brand/korea-university-mark.png" type="image/png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="top-hud">
+        <a class="brand" id="brandHome" href="#overview-p1" aria-label="처음으로">
+          <img class="brand-symbol" src="assets/brand/korea-university-mark.png" alt="" aria-hidden="true" />
+          <img class="brand-wordmark" src="assets/brand/korea-university-news.png" alt="고대신문" />
+          <span class="brand-divider" aria-hidden="true"></span>
+          <strong>소장 아카이브</strong>
+        </a>
+        <a
+          class="article-button"
+          href="https://www.kunews.ac.kr/news/articleView.html?idxno=51301"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          기사 보기
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg>
+        </a>
+      </header>
+
+      <main class="viewer-stage" aria-live="polite">
+        <section class="document-heading">
+          <div>
+            <span class="document-kicker" id="documentKicker">FILE 01 · SOURCE</span>
+            <h1 id="documentTitle">사건 개요</h1>
+          </div>
+          <div class="page-readout" aria-label="현재 페이지">
+            <strong id="pageCurrent">01</strong>
+            <span>/</span>
+            <span id="pageTotal">04</span>
+          </div>
+        </section>
+
+        <section class="document-viewport" id="documentViewport" aria-label="문서 원문 보기">
+          <button class="page-arrow page-arrow--prev" id="prevPage" type="button" aria-label="이전 페이지">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg>
+          </button>
+
+          <div class="paper-wrap" id="paperWrap">
+            <div class="paper-loader" id="paperLoader"><span></span> 기록을 불러오는 중</div>
+            <img id="pageImage" alt="사건 개요 1페이지" draggable="false" />
+          </div>
+
+          <button class="page-arrow page-arrow--next" id="nextPage" type="button" aria-label="다음 페이지">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg>
+          </button>
+        </section>
+
+        <div class="viewer-tools" aria-label="문서 보기 도구">
+          <button id="zoomOut" type="button" aria-label="축소">−</button>
+          <button id="fitPage" type="button">화면 맞춤</button>
+          <button id="zoomIn" type="button" aria-label="확대">＋</button>
+        </div>
+      </main>
+
+      <nav class="game-dock" aria-label="문서 및 기능 선택">
+        <div class="document-deck" id="documentDeck" role="tablist" aria-label="문서 선택"></div>
+        <div class="action-bar">
+          <button class="action-button is-active" data-mode="original" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h10l4 4v14H5zM14 3v5h5M8 13h8M8 17h6" /></svg>
+            <span>원문</span>
+          </button>
+          <button class="action-button" data-mode="text" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10" /></svg>
+            <span>텍스트</span>
+          </button>
+          <a class="action-button" id="downloadButton" href="documents/case-overview.pdf" download>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M5 21h14" /></svg>
+            <span>다운로드</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+
+    <dialog class="info-panel" id="infoPanel">
+      <div class="panel-shell">
+        <header class="panel-header">
+          <div>
+            <span id="panelKicker">TEXT MODE</span>
+            <h2 id="panelTitle">텍스트로 읽기</h2>
+          </div>
+          <button class="icon-button" id="closePanel" type="button" aria-label="닫기">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg>
+          </button>
+        </header>
+        <div class="panel-search" id="panelSearch">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m20 20-4-4" /></svg>
+          <input id="searchInput" type="search" placeholder="현재 문서에서 검색" autocomplete="off" />
+          <span id="searchCount"></span>
+        </div>
+        <article class="panel-content" id="panelContent"></article>
+      </div>
+    </dialog>
+
+    <script src="assets/document-text.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
