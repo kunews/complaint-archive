@@ -9,7 +9,7 @@
   --dock-height: 170px;
   --header-height: 72px;
   --zoom: 1;
-  font-family: Pretendard, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  font-family: "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -87,15 +87,6 @@ svg {
   width: 33px;
   height: 33px;
   object-fit: contain;
-  transition: transform 350ms cubic-bezier(.2,.8,.2,1);
-}
-
-.brand:hover .brand-symbol { transform: scale(1.08); }
-
-.brand-wordmark {
-  width: clamp(104px, 11vw, 142px);
-  height: auto;
-  display: block;
 }
 
 .brand-divider {
@@ -124,7 +115,7 @@ svg {
   font-size: 12px;
   font-weight: 750;
   text-decoration: none;
-  transition: color 180ms ease, background 180ms ease, border-color 180ms ease, transform 180ms ease;
+  transition: color 180ms ease, background 180ms ease, border-color 180ms ease;
 }
 
 .article-button svg { width: 17px; }
@@ -160,7 +151,9 @@ svg {
   display: block;
   margin-bottom: 5px;
   color: var(--pink);
-  font: 800 10px/1.2 ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1.2;
   letter-spacing: 0.14em;
 }
 
@@ -176,7 +169,9 @@ svg {
   align-items: baseline;
   gap: 7px;
   color: #a1a19c;
-  font: 700 12px/1 ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
 }
 
 .page-readout strong {
@@ -268,7 +263,6 @@ svg {
   border-color: var(--pink);
   background: var(--pink);
   color: var(--white);
-  transform: scale(1.06);
 }
 
 .page-arrow:disabled { opacity: 0.22; cursor: default; }
@@ -336,7 +330,7 @@ svg {
   color: var(--black);
   text-align: left;
   cursor: pointer;
-  transition: color 190ms ease, background 190ms ease, border-color 190ms ease, transform 190ms ease, box-shadow 190ms ease;
+  transition: color 190ms ease, background 190ms ease, border-color 190ms ease;
 }
 
 .document-card:hover {
@@ -356,14 +350,15 @@ svg {
   border-radius: 50%;
   background: var(--soft);
   color: var(--black);
-  font: 800 11px/1 ui-monospace, SFMono-Regular, Consolas, monospace;
-  transition: color 190ms ease, background 190ms ease, transform 190ms ease;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1;
+  transition: color 190ms ease, background 190ms ease;
 }
 
 .document-card.is-active .document-card__number {
   background: var(--pink);
   color: var(--white);
-  transform: rotate(-7deg);
 }
 
 .document-card__copy strong,
@@ -386,7 +381,9 @@ svg {
 
 .document-card__pages {
   color: #a1a19c;
-  font: 800 9px/1 ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 9px;
+  font-weight: 800;
+  line-height: 1;
 }
 
 .action-bar {
@@ -409,14 +406,13 @@ svg {
   color: var(--muted);
   text-decoration: none;
   cursor: pointer;
-  transition: color 170ms ease, background 170ms ease, transform 170ms ease;
+  transition: color 170ms ease, background 170ms ease;
 }
 
 .action-button:hover,
 .action-button.is-active {
   background: var(--soft);
   color: var(--pink);
-  transform: translateY(-1px);
 }
 
 .action-button:first-child { color: var(--black); }
@@ -478,7 +474,7 @@ dialog::backdrop {
   transition: 170ms ease;
 }
 
-.icon-button:hover { border-color: var(--pink); color: var(--pink); transform: rotate(4deg); }
+.icon-button:hover { border-color: var(--pink); color: var(--pink); }
 .icon-button svg { width: 18px; }
 
 .panel-search {
@@ -508,7 +504,9 @@ dialog::backdrop {
 
 #searchCount {
   color: var(--pink);
-  font: 800 10px/1 ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1;
 }
 
 .panel-content {
@@ -535,7 +533,9 @@ dialog::backdrop {
   border-radius: 99px;
   background: var(--black);
   color: var(--white);
-  font: 800 9px/1 ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 9px;
+  font-weight: 800;
+  line-height: 1;
   letter-spacing: 0.08em;
 }
 
@@ -570,7 +570,6 @@ mark {
   .top-hud { padding-inline: 13px; }
   .brand { gap: 7px; }
   .brand-symbol { width: 28px; height: 28px; }
-  .brand-wordmark { width: 91px; }
   .brand-divider { height: 18px; }
   .brand strong { display: none; }
 
@@ -613,8 +612,6 @@ mark {
 
   .page-arrow--prev { left: 8px; }
   .page-arrow--next { right: 8px; }
-  .page-arrow:hover:not(:disabled) { transform: translateY(-50%); }
-
   .viewer-tools button { height: 28px; font-size: 11px; }
 
   .game-dock { padding: 9px 10px max(9px, env(safe-area-inset-bottom)); }
