@@ -15,7 +15,7 @@ const documents = [
     title: "김동우 씨 소장",
     label: "로스쿨생 작성",
     type: "DRAFT A",
-    pages: 4,
+    pages: 3,
     imagePath: "assets/pages/student/page-{page}.jpg",
     pdf: "documents/kim-dongwoo-complaint.pdf"
   },
